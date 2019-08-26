@@ -18,6 +18,10 @@ class controller1 extends CI_Controller {
 	public function emp()
 	{
 		$this->load->view('form_empleos');
+	}	
+	public function formulario()
+	{
+		$this->load->view('formulario');
 	}
 	public function mostrarEmp()
 	{
@@ -31,14 +35,39 @@ class controller1 extends CI_Controller {
 		$tiempo = $_POST["tiempo"];
 		$direccion = $_POST["direccion"];
 		$this->formulario_modelo->registrarEmp($empresa, $tiempo, $direccion);
+		redirect('empleos');
 	}
-	public function formulario()
+	public function deleteEmp($id_empleos)
 	{
-		$this->load->view('formulario');
+		$this->load->model("formulario_modelo");
+		$this->formulario_modelo->deleteEmp($id_empleos);
+		redirect('mostrarEmp');
 	}
-	public function recibidatos()
-	{
 
+	//Personas
+	public function mostrarPer()
+	{
+		$this->load->model("formulario_modelo");
+		$SelectPer = $this->formulario_modelo->selectPer();
+		$this->load->view('mostrar_personas',compact("SelectPer"));
 	}
+	public function registrarper()
+	{
+		$this->load->model("formulario_modelo");
+		$persona = $_POST["nombre"];
+		$genero = $_POST["genero"];
+		$edad = $_POST["edad"];
+		$direccion = $_POST["direccion"];
+		$this->formulario_modelo->registrarPer($persona, $genero, $edad, $direccion);
+		redirect('personas');
+	}
+	public function deletePer($id_personas)
+	{
+		$this->load->model("formulario_modelo");
+		$this->formulario_modelo->deletePer($id_personas);
+		redirect('mostrarPer');
+	}
+
+
 }
 ?>

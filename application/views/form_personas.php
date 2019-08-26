@@ -22,7 +22,7 @@
 
         <div class="container" style="background-color:#AFEEEE">
 
-            <form action = "controller1/registrarEmp" method="POST"> 
+            <form action = "registrarper" method="POST"> 
     <!--           "RegistrarEmpleo" este es el nombre pueto en la ruta -->
                 <table class="formulario personas">
                     <tr>
@@ -31,7 +31,7 @@
                     </tr>
                     <tr>            
                         <th>Genero:</th>
-                        <td><select>
+                        <td><select name="genero">
                                 <option value="masculino">Masculino</option>
                                 <option value="femenino">Femenino</option>
                             </select></td>
@@ -46,13 +46,11 @@
                         <td><input type="text" name="direccion"></td>
 
                     </tr>
-                    <td>
-                    <input type="submit">
-                    <p>    <input type="button" class="btn btn-info" value="MostrarDatos" onclick="location.href = 'mostrarEmp';">
-                    </p>
-                    </td>
 
-                </table>
+                </table><br>
+            <p> <input type="submit" class="btn btn-info" value="insertar" >
+            <input type="button" class="btn btn-info" value="MostrarDatos" onclick="location.href = 'mostrarPer';">
+        </p>
             </form>
         <div> 
             <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'formulario';">

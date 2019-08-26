@@ -33,13 +33,11 @@
             <td><input type="text" name="direccion"></td>
 
         </tr>
-        <td>
-        <input type="submit">
-        <p>    <input type="button" class="btn btn-info" value="MostrarDatos" onclick="location.href = 'mostrarEmp';">
-        </p>
-        </td>
 
-    </table>
+    </table><br>
+        <p> <input type="submit" class="btn btn-info" value="insertar">
+            <input type="button" class="btn btn-info" value="MostrarDatos" onclick="location.href = 'mostrarEmp';">
+        </p>
     </form>
     <div> 
     <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'formulario';">

@@ -19,21 +19,26 @@
     <div class="container" style="background-color:#AFEEEE">
     <!--           "RegistrarEmpleo" este es el nombre pueto en la ruta -->
     <table class="formulario empresas">
+        <thead>
+            <tr> 
+                <th>ID</th>
+                <th>Empresa</th>
+                <th>Direccion</th>
+                <th>tiempo</th>
+            </tr>
+        </thead>
+        <tbody>
         <?php foreach ($SelectEmp as $key) {        
-        echo'<tr>';
-            echo'<th>Empresa:</th>';
-            echo'<td>'.$key->nombre_empleos.'</td>';
-            echo'</tr>';
-            echo'<tr>            ';
-            echo'<th>Direccion:</th>';
-            echo'<td>'.$key->direccion_empleos.'</td>';
-            echo'</tr>';
             echo'<tr>';
-            echo'<th>Tiempo:</th>';
+            echo'<td>'.$key->id_empleos.'</td>';
+            echo'<td>'.$key->nombre_empleos.'</td>';
+            echo'<td>'.$key->direccion_empleos.'</td>';
             echo'<td>'.$key->tiempo_servicio.'</td>';
+            echo'<td><a type="button" class="btn btn-dark" href ="deleteEmp/'.$key->id_empleos.'">Eliminar</a> </td>';
             echo'</tr>';
         }
         ?>
+        </tbody>
     </table>
     <div> 
     <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'formulario';">
