@@ -35,13 +35,14 @@
             echo'<td>'.$key->direccion_empleos.'</td>';
             echo'<td>'.$key->tiempo_servicio.'</td>';
             echo'<td><a type="button" class="btn btn-dark" href ="deleteEmp/'.$key->id_empleos.'">Eliminar</a> </td>';
+            echo'<td><a type="button" href ="actualizarEmpleo/'.$key->id_empleos.'">Actualizar</a></td>';
             echo'</tr>';
         }
         ?>
         </tbody>
     </table>
     <div> 
-    <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'formulario';">
+    <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'empleos';">
     </div> 
     </div>
 

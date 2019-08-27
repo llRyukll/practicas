@@ -18,6 +18,16 @@ class Formulario_modelo extends CI_Model
         $this->db->insert('empleos'); 
 
     }
+    public function selectId($id)
+    {   
+        $sql = $this->db->query("SELECT * FROM personas where id_personas ='$id' ");
+        return $sql->result();
+    }
+        public function selectIdEmp($id)
+    {   
+        $sql = $this->db->query("SELECT * FROM empleos where id_empleos ='$id' ");
+        return $sql->result();
+    }
     public function selectEmp(){
         //$sql = $this->db->query("SELECT * FROM empleos")->result();
         //return $sql;
@@ -31,12 +41,11 @@ class Formulario_modelo extends CI_Model
         //$this->db->delete('empleos',['id_empleos'=>$id])
     }
 
-    public function updateEmp($id){
+    public function updateEmp($id,$empresa, $direccion, $tiempo){
         $data = array( 'nombre_empleos' => $empresa ,
                        'direccion_empleos' => $direccion ,
                        'Tiempo_servicio' => $tiempo
             );
-
         $this->db->where('id_empleos', $id);
         $this->db->update('empleos', $data); 
     }
@@ -65,13 +74,12 @@ class Formulario_modelo extends CI_Model
         $this->db->where('id_personas', $id);
         $this->db->delete('personas'); 
     }
-
-    public function updatePer($id){
-        $data = array( 'nombre_personas' => $personas ,
+    public function updatePer($id,$persona, $genero, $edad, $direccion){
+        $data = array( 'nombre_personas' => $persona ,
                        'genero_personas' => $genero ,
                        'edad_personas' => $edad,
                         'direccion_personas' => $direccion
-            );
+                    );
         $this->db->where('id_personas', $id);
         $this->db->update('personas', $data); 
     }

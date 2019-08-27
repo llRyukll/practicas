@@ -23,6 +23,19 @@ class controller1 extends CI_Controller {
 	{
 		$this->load->view('formulario');
 	}
+	public function view_per($Id)
+	{
+		$this->load->model("formulario_modelo");
+		$datos = $this->formulario_modelo->selectId($Id);
+		$this->load->view('actualizarPer',compact("datos"));
+	}
+	public function view_emp($Id)
+	{
+		$this->load->model("formulario_modelo");
+		$datos = $this->formulario_modelo->selectIdEmp($Id);
+		$this->load->view('actualizarEmp',compact("datos"));
+	}
+
 	public function mostrarEmp()
 	{
 		$this->load->model("formulario_modelo");
@@ -41,6 +54,16 @@ class controller1 extends CI_Controller {
 	{
 		$this->load->model("formulario_modelo");
 		$this->formulario_modelo->deleteEmp($id_empleos);
+		redirect('mostrarEmp');
+	}
+	public function updateEmp()
+	{
+		$id = $_POST["id"];
+		$persona = $_POST["nombre"];
+		$direccion = $_POST["direccion"];
+		$tiempo = $_POST["tiempo"];
+		$this->load->model("formulario_modelo");
+		$this->formulario_modelo->updateEmp($id, $persona, $direccion, $tiempo);
 		redirect('mostrarEmp');
 	}
 
@@ -65,6 +88,17 @@ class controller1 extends CI_Controller {
 	{
 		$this->load->model("formulario_modelo");
 		$this->formulario_modelo->deletePer($id_personas);
+		redirect('mostrarPer');
+	}
+	public function updatePer()
+	{
+		$id = $_POST["id"];
+		$persona = $_POST["nombre"];
+		$genero = $_POST["genero"];
+		$edad = $_POST["edad"];
+		$direccion = $_POST["direccion"];
+		$this->load->model("formulario_modelo");
+		$this->formulario_modelo->updatePer($id, $persona, $genero, $edad, $direccion);
 		redirect('mostrarPer');
 	}
 

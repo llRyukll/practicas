@@ -57,13 +57,24 @@ $route['personas'] = 'controller1/per';
 $route['empleos'] = 'controller1/emp';
 $route['formulario'] = 'controller1/formulario';
 
+
 $route['RegistrarEmpleo']='controller1/registrarEmp';
 $route['mostrarEmp']='controller1/mostrarEmp';
 $route['deleteEmp/(:any)']='controller1/deleteEmp/$1';
+$route['updateEmp'] = 'controller1/updateEmp';
+$route['actualizarEmpleo/(:any)'] = 'controller1/view_emp/$1';
+
+
 
 $route['mostrarPer']='controller1/mostrarPer';
 $route['registrarper']='controller1/registrarper';
 $route['deletePer/(:any)']='controller1/deletePer/$1';
+$route['actualizarPersona/(:any)'] = 'controller1/view_per/$1';
+$route['updatePer'] = 'controller1/updatePer';
+
+
+
+
 
 
 

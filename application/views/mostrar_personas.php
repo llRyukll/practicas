@@ -14,6 +14,7 @@
         }
 
     </style>
+
 </head>
 <body >
     <div class="container" style="background-color:#AFEEEE">
@@ -21,6 +22,7 @@
     <table class="formulario personas">
         <thead>
             <tr> 
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Genero</th>
                 <th>Edad</th>
@@ -36,12 +38,12 @@
             echo'<td>'.$key->edad_personas.'</td>';
             echo'<td>'.$key->direccion_personas.'</td>';
             echo'<td><a type="button" class="btn btn-danger" href ="deletePer/'.$key->id_personas.'">Eliminar</a></td>';
-            echo'<td><a type="button" class="btn btn-info" href = ""></a>ActualizarDatos</td>';
+            echo'<td><a type="button" href ="actualizarPersona/'.$key->id_personas.'">Actualizar</a></td>';
             echo'</tr>';
         }
         ?>
     </table>
     <div> 
-    <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'formulario';">
+    <input id="button" type="button" class="btn btn-info" value="Return"  onclick="location.href = 'personas';">
 </body>
 </html>
