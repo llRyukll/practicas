@@ -21,21 +21,7 @@
         <div class="container" style="background-color:#AFEEEE">
 
             <form action = "../updatePer" method="POST">
-                <table class="formulario personas">
-                    <?php //Esta es otra forma deimprimir los datos traidos por una variable
-                    foreach ($datos as $dt) {
-                        echo'<tr><td>ID: <input type="text" id="cantidad" name ="id" value="'.$dt->id_personas.'" readonly maxlength="4"></td></tr>';
-                        echo'<tr><td>Nombre: <input type="text" name ="nombre" value="'.$dt->nombre_personas.'"></td></tr>';
-                        echo'<tr><td>Genero:<select name="genero">
-                                <option value="masculino">Masculino</option>
-                                <option value="femenino">Femenino</option>
-                            </select></td></tr>';
-                        echo'<tr><td>Edad: <input type="text" name ="edad" value="'.$dt->edad_personas.'" onKeyUp= javascript:validarSiNumero(this.value) maxlength="2" ></td></tr>';
-                        echo'<tr><td>Direccion: <input type="text" name ="direccion" value="'.$dt->direccion_personas.'"></td></tr>';
-                    }
-                    ?>
-                <!-- <table class="formulario personas">  Otra opcion ed como amndar infomracion
-                    <tr>
+                <table class="formulario personas">  
                         <th>ID:</th>
                         <td><input type="text" name ="id" value="<?php echo $datos[0]->id_personas; ?> "></td>
                     </tr>
@@ -52,15 +38,13 @@
                     </tr>
                     <tr>
                         <th>Edad:</th>
-                        <td><input type="text" name="edad" value="<?php echo $datos[0]->edad_personas; ?> " onChange ="javascript:validarSiNumero(this.value) maxlength="2" ></td>
-
+                        <td><input type="text" name="edad" value="<?php echo $datos[0]->edad_personas; ?>"onKeyPress="return soloNumeros(event)" maxlength="2" ></td>
                     </tr>
                     <tr>
                         <th>direccion:</th>
                         <td><input type="text" name="direccion" value="<?php echo $datos[0]->direccion_personas; ?> "></td>
-
                     </tr>
-                </table><br> -->
+                </table><br>
                 </table><br>
                 <p> <input type="submit" class="btn btn-info" id="actualizarb" value="Actualizar"> </p>
             </form>
@@ -70,12 +54,27 @@
 
 </body>
 </html>
-    <script>
+   <!--  <script>
       function validarSiNumero(numero){
-        if (!/^([0-9])*$/.test(numero))
+        if (/^([0-9])*$/.test(numero)){
+            alert("si es numero");
             return false
-            // var boton = document.getelementbyid('actualizarb');
-            // boton.style.display='none';
-
+        }
+        else{
+            alert("no es numero");
+        }
       }
+    </script> -->
+    <script type="text/javascript">
+        function soloNumeros(e)
+        {
+            var charCode= (e.which) ? e.which : e.keyCode;
+            if(charCode > 31 && (charCode <48 || charCode >57)){
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
     </script>
